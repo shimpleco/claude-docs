@@ -38,3 +38,17 @@ end
 
 # ...
 ```
+
+- プライベートメソッドを定義するときは `private def` としてください
+
+```rb
+# NG
+private
+
+def foo
+end
+
+# OK
+private def foo
+end
+```
