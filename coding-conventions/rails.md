@@ -59,6 +59,8 @@ end
 ## Model
 
 - `Model` では `T::Struct` や `T::Enum` を継承したクラスや、PORO (Plain Old Ruby Object) を定義します
+- `Model` は必ず `app/models` 配下に配置してください
+- `Service` 内で定義される `T::Struct` などは `Model` ではなく、`Service` の内部実装として扱います
 
 ```rb
 # typed: strict
