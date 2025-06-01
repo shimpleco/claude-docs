@@ -40,11 +40,14 @@ end
 ## Form
 
 - 共通で使うバリデーションは `form_concerns` 配下にモジュールとして定義してください
+- 各フィールドは `ActiveModel::Attributes` を使用して定義してください
 
 ### 命名規則
 
 - クラス名は `(リソース名)Form::(名詞)` とします
   - 例: `SpaceForm::Creation`
+
+### コード例
 
 ```rb
 # typed: strict
@@ -52,6 +55,7 @@ end
 
 module SpaceForm
   class Creation < ApplicationForm
+    attribute :name, :string
   end
 end
 ```
