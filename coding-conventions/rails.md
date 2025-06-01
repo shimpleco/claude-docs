@@ -101,7 +101,7 @@ end
 ## View
 
 - コントローラーのアクションごとに定義します
-- プライベートなアクセサメソッドを定義してください
+- メソッドはアクセサメソッドも含めて全てプライベートに定義してください
 
 ```rb
 # typed: strict
@@ -117,6 +117,11 @@ module Pages
     sig { returns(Page) }
     attr_reader :page
     private :page
+
+    sig { returns(String) }
+    private def title
+      t("meta.title.pages.show")
+    end
   end
 end
 ```
