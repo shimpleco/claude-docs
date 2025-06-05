@@ -142,3 +142,7 @@ create_table :examples, id: false do |t|
   # ...
 end
 ```
+
+## Sorbet
+
+- `T.must` は使わず、`config/initializers/not_nil.rb` で定義している `#not_nil!` を使用してください
