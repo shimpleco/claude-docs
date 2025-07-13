@@ -35,6 +35,26 @@ create_table :examples, id: false do |t|
 end
 ```
 
+## I18n (国際化)
+
+### 翻訳ファイルの配置
+
+- `config/locales/` 配下の翻訳ファイルは用途別に分類して配置してください
+- 基本的には以下のファイル構成に従ってください:
+
+| ファイル名 | 用途 | 例 |
+| --- | --- | --- |
+| `forms.(ja|en).yml` | フォーム関連 | バリデーションエラーメッセージ、フォーム属性名 |
+| `messages.(ja|en).yml` | メッセージ・説明文 | エラーメッセージ、プレースホルダー、説明文 |
+| `meta.(ja|en).yml` | メタデータ | ページタイトル、description |
+| `nouns.(ja|en).yml` | 名詞・ラベル | ボタンテキスト、フィールドラベル |
+
+### 翻訳キーの命名規則
+
+- 機能的に関連するものは同じファイル内にまとめてください
+  - 例: 検索機能のプレースホルダーは `messages.search.search_keyword_placeholder` として `messages.ja.yml` に配置する
+  - 例: 検索ボタンのテキストは `nouns.search` として `nouns.ja.yml` に配置する
+
 ## Sorbet
 
 - `T.must` は使わず、`config/initializers/not_nil.rb` で定義している `#not_nil!` を使用してください
