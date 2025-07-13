@@ -55,6 +55,11 @@ end
   - 例: 検索機能のプレースホルダーは `messages.search.search_keyword_placeholder` として `messages.ja.yml` に配置する
   - 例: 検索ボタンのテキストは `nouns.search` として `nouns.ja.yml` に配置する
 
+### 多言語対応
+
+- 新しい翻訳を追加する際は、日本語ファイル (`.ja.yml`) と英語ファイル (`.en.yml`) の両方を更新してください
+- アプリケーションは日本語と英語の両方をサポートしています (`config.i18n.available_locales = %i[en ja]`)
+
 ## Sorbet
 
 - `T.must` は使わず、`config/initializers/not_nil.rb` で定義している `#not_nil!` を使用してください
