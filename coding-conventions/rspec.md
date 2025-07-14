@@ -40,3 +40,23 @@ RSpec.describe "GET /", type: :request do
   end
 end
 ```
+
+- `described_class` は使用せず、明示的にクラス名を書いてください
+
+```rb
+# NG
+RSpec.describe User, type: :model do
+  it "xxx" do
+    user = described_class.new(name: "太郎")
+    # ...
+  end
+end
+
+# OK
+RSpec.describe User, type: :model do
+  it "xxx" do
+    user = User.new(name: "太郎")
+    # ...
+  end
+end
+```
