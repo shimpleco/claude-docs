@@ -60,3 +60,38 @@ RSpec.describe User, type: :model do
   end
 end
 ```
+
+## ファイルパス
+
+- Request specのファイルパスは `spec/requests/<コントローラー名>/<アクション名>_spec.rb` の形式で配置してください
+
+```rb
+# 例: UsersControllerのshowアクションのテスト
+# ファイルパス: spec/requests/users/show_spec.rb
+
+RSpec.describe "GET /users/:id", type: :request do
+  it "ユーザー情報を表示すること" do
+    user = FactoryBot.create(:user)
+
+    get user_path(user)
+
+    expect(response).to have_http_status(200)
+    expect(response.body).to include(user.name)
+  end
+end
+
+# 例: Api::V1::EpisodesControllerのindexアクションのテスト
+# ファイルパス: spec/requests/api/v1/episodes/index_spec.rb
+
+RSpec.describe "GET /api/v1/episodes", type: :request do
+  it "エピソード一覧を返すこと" do
+    episode = FactoryBot.create(:episode)
+
+    get api_v1_episodes_path
+
+    expect(response).to have_http_status(200)
+    json = JSON.parse(response.body)
+    expect(json["episodes"].length).to eq(1)
+  end
+end
+```
