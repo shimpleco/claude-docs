@@ -22,7 +22,9 @@
 
 ## 各クラスの実装方針
 
-- https://wikino.app/s/shimbaco/pages/657 に記載している方針で実装します
+- 以下のページに記載している方針で実装します
+  - https://wikino.app/s/shimbaco/pages/657
+  - ↑のページの内容を読み取ってください
 
 ## マイグレーション
 
